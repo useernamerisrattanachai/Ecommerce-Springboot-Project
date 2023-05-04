@@ -13,7 +13,7 @@ import java.util.Arrays;
 
 @Service
 public class AdminServiceImpl implements AdminService {
-
+    @Autowired
     private BCryptPasswordEncoder passwordEncoder;
     @Autowired
     private AdminRepository adminRepository;
@@ -32,7 +32,7 @@ public class AdminServiceImpl implements AdminService {
         admin.setFirstName(adminDto.getFirstName());
         admin.setLastName(adminDto.getLastName());
         admin.setUsername(adminDto.getUsername());
-        admin.setPassword(passwordEncoder.encode(adminDto.getPassword()));
+        admin.setPassword(adminDto.getPassword());
         admin.setRoles(Arrays.asList(roleRepository.findByName("ADMIN")));
         return adminRepository.save(admin);
     }

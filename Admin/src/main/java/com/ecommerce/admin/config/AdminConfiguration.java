@@ -47,7 +47,7 @@ public class AdminConfiguration extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/do-login")
-                .defaultSuccessUrl("/admin/index")
+                .defaultSuccessUrl("/index")
                 .permitAll()
                 .and()
                 .logout()
@@ -56,6 +56,5 @@ public class AdminConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login?logout")
                 .permitAll();
-
     }
 }
