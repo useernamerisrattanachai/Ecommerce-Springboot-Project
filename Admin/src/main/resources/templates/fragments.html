@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title th:text ="${title}"></title>
+    <title th:text="${title}"></title>
 
     <!-- Custom fonts for this template-->
     <link th:href="@{vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -140,7 +140,8 @@
     <!-- Sidebar Message -->
     <div class="sidebar-card d-none d-lg-flex">
         <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-        <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+        <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!
+        </p>
         <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
     </div>
 
@@ -267,7 +268,8 @@
                     </div>
                     <div class="font-weight-bold">
                         <div class="text-truncate">Hi there! I am wondering if you can help me with a
-                            problem I've been having.</div>
+                            problem I've been having.
+                        </div>
                         <div class="small text-gray-500">Emily Fowler · 58m</div>
                     </div>
                 </a>
@@ -279,7 +281,8 @@
                     </div>
                     <div>
                         <div class="text-truncate">I have the photos that you ordered last month, how
-                            would you like them sent to you?</div>
+                            would you like them sent to you?
+                        </div>
                         <div class="small text-gray-500">Jae Chun · 1d</div>
                     </div>
                 </a>
@@ -291,7 +294,8 @@
                     </div>
                     <div>
                         <div class="text-truncate">Last month's report looks great, I am very happy with
-                            the progress so far, keep up the good work!</div>
+                            the progress so far, keep up the good work!
+                        </div>
                         <div class="small text-gray-500">Morgan Alvarez · 2d</div>
                     </div>
                 </a>
@@ -303,7 +307,8 @@
                     </div>
                     <div>
                         <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                            told me that people say this to all dogs, even if they aren't good...</div>
+                            told me that people say this to all dogs, even if they aren't good...
+                        </div>
                         <div class="small text-gray-500">Chicken the Dog · 2w</div>
                     </div>
                 </a>
@@ -348,7 +353,7 @@
 
 </nav>
 <!--Foorter -->
-<footer th:fragment = "footer"class="sticky-footer bg-white">
+<footer th:fragment="footer" class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2021</span>
@@ -356,11 +361,12 @@
     </div>
 </footer>
 <!--scroll -->
-<a th:fragment = "scroll" class="scroll-to-top rounded" href="#page-top">
+<a th:fragment="scroll" class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
 <!-- Logout Modal-->
-<div th:fragment="logoutModal"class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div th:fragment="logoutModal" class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -378,7 +384,6 @@
         </div>
     </div>
 </div>
-
 
 
 <!--script-->
