@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://thymeleaf.org/">
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
 
 <head th:replace="fragments :: header">
 
@@ -41,20 +41,26 @@
                     <p th:text="${failed}"></p>
                 </div>
 
-                <table class="table table-striped" th:if="${size>0}">
+                <table class="table table-bordered" th:if="${size>0}">
                     <thead>
                     <tr>
                         <th scope="col">Category Index</th>
                         <th scope="col">Category Name</th>
+                        <th scope="col">Edit Category Name</th>
                         <th scope="col">Action</th>
-
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="category : ${categories}">
                         <th scope="row" th:text="${category.id}"></th>
                         <td th:text="${category.name}"></td>
-                        <td></td>
+                        <td>
+                            <a id="editButton" th:href="@{/findById/(id = ${category.id})}" class="btn btn-primary">Update</a>
+                        </td>
+                        <td>
+                            <a th:if = "${category.is_activated} == true"th:href="@{/delete-category/(id=${category.id})}" class="btn btn-warning">Deleted</a>
+                            <a th:if = "${category.is_activated} == false"th:href="@{/enable-category/(id=${category.id})}" class="btn btn-primary">Enabled</a>
+                        </td>
                     </tr>
 
                     </tbody>
@@ -101,6 +107,32 @@
         </div>
     </form>
 </div>
+<!--Change Name category Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalExample"
+     aria-hidden="true">
+        <form th:action="@{/update-category}" method="put">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" >Edit Category</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="idEdit" class="col-form-label">ID:</label>
+                        <input type="text" class="form-control"  id="idEdit" name="id" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="nameEdit" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control"  id="nameEdit" name="name" >
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+        </form>
 </div>
 <!-- Bootstrap core JavaScript-->
 <div th:replace="fragments::script"></div>

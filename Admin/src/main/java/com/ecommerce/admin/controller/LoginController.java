@@ -3,6 +3,10 @@ package com.ecommerce.admin.controller;
 import com.ecommerce.library.dto.AdminDto;
 import com.ecommerce.library.model.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,6 +37,10 @@ public class LoginController {
     @RequestMapping("/index")
     public String home(Model model) {
         model.addAttribute("title","Home Page");
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken){
+            return "redirect:/login";
+        }
         return "index";
     }
 
